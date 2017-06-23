@@ -44,6 +44,8 @@ class ZmqWrapBase {
   void SetHighWaterMark(int high_water_mark) {
     socket_->setsockopt(ZMQ_SNDHWM, (void*)&high_water_mark,
                         sizeof(high_water_mark));
+    socket_->setsockopt(ZMQ_RCVHWM, (void*)&high_water_mark,
+                        sizeof(high_water_mark));
   }
 
   // You can bind a socket or connect a socket. This is confusing when

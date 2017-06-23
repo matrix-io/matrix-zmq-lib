@@ -52,7 +52,7 @@ TEST_F(TestPubSub, MessageArrivesWithSubscription) {
   pub.Init(n_threads);
   sub.Init(n_threads);
 
-  // Pub binds. We will test a connected pub later.
+  // Pub binds.
   pub.Bind(address_1);
   sub.Connect(address_1);
 

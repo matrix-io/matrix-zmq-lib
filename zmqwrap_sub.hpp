@@ -30,6 +30,8 @@ namespace matrix_labs {
 
 // When the hight-water-mark is reached the messages are dropped and the
 // socket doesn't block.
+// NOTE: *** HWM is not working for subscribers! *** It didn't work in an
+// unit test.
 
 // A ZMQ subscriber is often connected to a remote publisher.
 // The opposite can also be done but it didn't work in the unit test.
