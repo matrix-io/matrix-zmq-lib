@@ -26,6 +26,7 @@ set(headers_to_install
   zmqwrap_pub.hpp   zmqwrap_push.hpp)
 
 install (FILES ${headers_to_install} DESTINATION include/adm_zmq)
+install (FILES third_party/zmq.hpp DESTINATION include/adm_zmq/third_party)
 
 SET(BUILD_TESTS OFF CACHE STRING "Disable tests by default. You can override this passing -DBUILD_TESTS=ON to cmake")
 
