@@ -19,6 +19,13 @@ set(zmq_wrapper_lib_sources
 
 add_library(zmqwrap_lib ${zmq_wrapper_lib_sources})
 
+install (TARGETS zmqwrap_lib DESTINATION lib)
+
+set(headers_to_install
+  zmqwrap_base.hpp  zmqwrap_pull.hpp  zmqwrap_sub.hpp
+  zmqwrap_pub.hpp   zmqwrap_push.hpp)
+
+install (FILES ${headers_to_install} DESTINATION include/adm_zmq)
 
 SET(BUILD_TESTS OFF CACHE STRING "Disable tests by default. You can override this passing -DBUILD_TESTS=ON to cmake")
 
