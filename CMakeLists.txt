@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
+project(matrixio-zmqlib C CXX)
 
 # This won't be needed with recent cmake versions.
 add_definitions(-std=c++11)
@@ -49,3 +50,9 @@ if (BUILD_TESTS)
                         ${ZMQ_LIB})
   add_test(NAME test_pushpull COMMAND test_pushpull)
 endif()
+
+# Debian package config
+set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+set(CPACK_GENERATOR "DEB")
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "AdMobilize")
+include(CPack)
