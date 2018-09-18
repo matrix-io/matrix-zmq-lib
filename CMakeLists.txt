@@ -1,3 +1,4 @@
+project(zmqwrap_lib)
 cmake_minimum_required(VERSION 2.8)
 
 # This won't be needed with recent cmake versions.
