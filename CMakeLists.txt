@@ -13,7 +13,7 @@ FIND_LIBRARY(ZMQ_LIB NAMES zmq)
 
 if (MSVC)
   FIND_PATH(ZMQ_INCLUDE_DIR NAMES zmq.hpp)
-endif (MSVC)
+endif ()
 
 message(STATUS "ZMQ found => " "${ZMQ_LIB}")
 
@@ -27,7 +27,7 @@ add_library(zmqwrap_lib ${zmq_wrapper_lib_sources})
 
 if (MSVC)
   include_directories(${ZMQ_INCLUDE_DIR})
-endif (MSVC)
+endif ()
 
 install (TARGETS zmqwrap_lib DESTINATION lib)
 
