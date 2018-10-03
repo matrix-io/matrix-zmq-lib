@@ -1,3 +1,4 @@
+project(zmqwrap_lib)
 cmake_minimum_required(VERSION 2.8)
 
 # This won't be needed with recent cmake versions.
@@ -9,6 +10,11 @@ include (cmake/FatalWarnings.cmake)
 ADM_EXTRA_WARNINGS()
 
 FIND_LIBRARY(ZMQ_LIB NAMES zmq)
+
+if (MSVC)
+  FIND_PATH(ZMQ_INCLUDE_DIR NAMES zmq.hpp)
+endif ()
+
 message(STATUS "ZMQ found => " "${ZMQ_LIB}")
 
 set(zmq_wrapper_lib_sources
@@ -18,6 +24,10 @@ set(zmq_wrapper_lib_sources
 )
 
 add_library(zmqwrap_lib ${zmq_wrapper_lib_sources})
+
+if (MSVC)
+  include_directories(${ZMQ_INCLUDE_DIR})
+endif ()
 
 install (TARGETS zmqwrap_lib DESTINATION lib)
 
